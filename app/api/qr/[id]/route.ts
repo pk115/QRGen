@@ -1,14 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-// Re-import the in-memory store from parent (workaround for demo)
-// In production, use Prisma instead
+// In-memory demo stubs — actual data is in localStorage client-side
 
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
-  // In-memory demo: handled client-side optimistically
-  return NextResponse.json({ success: true })
+export async function DELETE(
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const { id } = await params
+  return NextResponse.json({ success: true, id })
 }
 
-export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PATCH(
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const { id } = await params
   const body = await req.json()
-  return NextResponse.json({ success: true, updated: body })
+  return NextResponse.json({ success: true, id, updated: body })
 }
