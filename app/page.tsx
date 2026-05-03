@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Navbar } from '@/components/Navbar'
 import { QRGeneratorPage } from '@/components/QRGeneratorPage'
 
@@ -9,6 +10,15 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8">
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <Image
+                src="/images/logo.png"
+                alt="Uncle Dev Logo"
+                width={56}
+                height={56}
+                className="rounded-full ring-2 ring-accent/30 shadow-lg"
+              />
+            </div>
             <h1 className="text-4xl font-extrabold text-primary-900 mb-2 tracking-tight">
               <span className="text-accent">QR</span> Generator
             </h1>
