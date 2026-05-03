@@ -1,0 +1,9 @@
+.next/
+node_modules/
+.env.local
+*.db
+*.db-journal
+.DS_Store
+Thumbs.db
+dist/
+out/
